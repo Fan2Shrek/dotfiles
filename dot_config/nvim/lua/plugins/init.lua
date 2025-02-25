@@ -74,6 +74,20 @@ return {
 		event = "BufReadPre", -- this will only start session saving when an actual file was opened
 		opts = {},
 	},
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+        end,
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        lazy = false,
+        dependencies =
+            {
+                "mfussenegger/nvim-dap",
+                "nvim-neotest/nvim-nio",
+            }
+    },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
