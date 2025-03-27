@@ -21,19 +21,33 @@ return {
 	},
 	{
 		"github/copilot.vim",
-		lazy = false,
-		config = function() -- Mapping tab is already used by NvChad
+		opts = function()
 			require("configs.copilot")
-			-- vim.g.copilot_no_tab_map = true
-			-- vim.g.copilot_assume_mapped = true
-			-- vim.g.copilot_tab_fallback = ""
-			-- -- The mapping is set to other key, see custom/lua/mappings
-			-- -- or run <leader>ch to see copilot mapping section
 		end,
 	},
 	{
 		"smoka7/hop.nvim",
-		lazy = false,
+		keys = {
+			{
+				",",
+				function()
+					require("hop").hint_words()
+				end,
+				mode = { "n", "x", "o" },
+			},
+			{
+				"<leader>j",
+				function()
+					require("hop").hint_patterns()
+				end,
+			},
+			{
+				"<leader>kk",
+				function()
+					require("hop").hint_anywhere()
+				end,
+			},
+		},
 		opts = require("configs.hop"),
 	},
 	{
@@ -59,7 +73,6 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		lazy = false,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -67,27 +80,26 @@ return {
 	},
 	{
 		"cappyzawa/trim.nvim",
-		lazy = false,
+        opts = {},
 	},
 	{
 		"folke/persistence.nvim",
 		event = "BufReadPre", -- this will only start session saving when an actual file was opened
 		opts = {},
 	},
-    {
-        "mfussenegger/nvim-dap",
-        config = function()
-        end,
-    },
-    {
-        "rcarriga/nvim-dap-ui",
+	{
+        -- remove unlazy load
+		"mfussenegger/nvim-dap",
         lazy = false,
-        dependencies =
-            {
-                "mfussenegger/nvim-dap",
-                "nvim-neotest/nvim-nio",
-            }
-    },
+		config = function() end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
+	},
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -116,6 +128,8 @@ return {
 						keys = {
 							["<Tab>"] = "list_down",
 							["<S-Tab>"] = "list_up",
+							["<S-k>"] = "preview_scroll_up",
+							["<S-j>"] = "preview_scroll_down",
 						},
 					},
 				},

@@ -19,7 +19,7 @@ dap.configurations.php = {
 		name = "Listen for Xdebug",
 		port = 9003,
 		pathMappings = {
-			["/app"] = vim.fn.getcwd(), -- Map Docker paths to local
+			["/srv"] = vim.fn.getcwd(), -- Map Docker paths to local
 		},
 	},
 }

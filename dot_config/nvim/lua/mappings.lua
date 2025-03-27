@@ -16,9 +16,6 @@ map(
 	{ expr = true, silent = true, noremap = true, replace_keycodes = false, desc = "Accept Copilot suggestion" }
 )
 
--- Hop
-map("n", "<leader>j", ":HopPattern<CR>", { silent = true, noremap = true, desc = "Hop pattern" })
-
 map(
 	"n",
 	"<leader>kw",
