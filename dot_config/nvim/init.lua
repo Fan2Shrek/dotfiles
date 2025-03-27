@@ -10,12 +10,15 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-vim.g.lazyvim_picker = "telescope"
 
 local lazy_config = require("configs.lazy")
 
 -- load plugins
 require("lazy").setup({
+	-- {
+	-- 	"LazyVim/LazyVim",
+	-- 	import = "lazyvim.plugins",
+	-- },
 	{
 		"NvChad/NvChad",
 		lazy = false,
@@ -40,15 +43,6 @@ vim.schedule(function()
 end)
 
 -- display nvdash on last buffer close
-vim.api.nvim_create_autocmd("BufDelete", {
-	callback = function()
-		local bufs = vim.t.bufs
-		if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
-			Snacks.dashboard()
-		end
-	end,
-})
-
 -- ####### Custom Functions #######
 function CloseAllBuffersInTab()
 	local tabpage = vim.api.nvim_get_current_tabpage()
@@ -60,4 +54,5 @@ function CloseAllBuffersInTab()
 	end
 end
 
+require("configs.autocmds")
 require("configs.dap")

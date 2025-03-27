@@ -4,7 +4,7 @@ return {
 		event = "InsertEnter",
 	},
 	{
-        "nvim-tree/nvim-web-devicons",
-        opts = {}
-    },
+		"nvim-tree/nvim-web-devicons",
+		opts = {},
+	},
 }

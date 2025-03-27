@@ -70,8 +70,8 @@ return {
 	},
 	{
 		"ta-tikoma/php.easy.nvim",
-		config = true,
 		keys = require("configs.easyphp"),
+        opts = {}
 	},
 	{
 		"folke/noice.nvim",
@@ -84,6 +84,7 @@ return {
 	{
 		"cappyzawa/trim.nvim",
 		opts = {},
+		event = "InsertEnter",
 	},
 	{
 		"folke/persistence.nvim",
