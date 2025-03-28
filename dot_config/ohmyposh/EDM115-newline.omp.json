@@ -15,8 +15,18 @@
           "properties": {
             "cache_duration": "none"
           },
-          "leading_diamond": "\ue0b6",
-          "template": "{{ .UserName }}", "foreground": "#f8f8f2",
+          "template": " >> ",
+          "foreground": "#f8f8f2",
+          "background": "#282a36",
+          "type": "session",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ .UserName }}",
+          "foreground": "#f8f8f2",
           "background": "#282a36",
           "type": "session",
           "style": "diamond"
