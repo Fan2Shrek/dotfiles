@@ -7,18 +7,28 @@ local M = {}
 
 M.base46 = {
 	theme = "doomchad",
-
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+    transparency = true,
 }
 
-M.nvdash = {
-	load_on_startup = true,
+M.ui = {
+	statusline = {
+		theme = "vscode_colored",
+	},
+
+	tabufline = {
+		lazyload = false,
+	},
+}
+
+M.term = {
+	float = {
+		relative = "editor",
+        row = 0.25,
+		col = 0.25,
+		height = 0.5,
+		width = 0.5,
+        border = "double",
+	},
 }
 
 return M
-
-
-

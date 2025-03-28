@@ -15,10 +15,6 @@ local lazy_config = require("configs.lazy")
 
 -- load plugins
 require("lazy").setup({
-	-- {
-	-- 	"LazyVim/LazyVim",
-	-- 	import = "lazyvim.plugins",
-	-- },
 	{
 		"NvChad/NvChad",
 		lazy = false,
@@ -36,13 +32,10 @@ dofile(vim.g.base46_cache .. "statusline")
 require("options")
 require("nvchad.autocmds")
 
-local Snacks = require("snacks")
-
 vim.schedule(function()
 	require("mappings")
 end)
 
--- display nvdash on last buffer close
 -- ####### Custom Functions #######
 function CloseAllBuffersInTab()
 	local tabpage = vim.api.nvim_get_current_tabpage()

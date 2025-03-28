@@ -61,12 +61,7 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-				-- TODO change
-			})
-		end,
+        opts = {},
 	},
 	{
 		"ta-tikoma/php.easy.nvim",
@@ -94,7 +89,7 @@ return {
 	{
 		-- remove unlazy load
 		"mfussenegger/nvim-dap",
-		lazy = false,
+		-- lazy = false,
 		config = function() end,
 	},
 	{

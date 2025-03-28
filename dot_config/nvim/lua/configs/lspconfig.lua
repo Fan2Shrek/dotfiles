@@ -9,6 +9,8 @@ local servers = {
 
 	intelephense = {
 		on_attach = function(client, bufnr)
+            nvlsp.on_attach(client, bufnr)
+            vim.keymap.set("n", "gd", "lua Snacks.picker.lsp_definitions()", { noremap = true, silent = true })
 			client.server_capabilities.signatureHelpProvider = false
 		end,
 	},
