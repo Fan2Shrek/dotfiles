@@ -14,7 +14,7 @@ local keys = {
     { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
 
-    { "grr", function() Snacks.picker.lsp_references() end, desc = "Projects" },
+    { "grr", function() Snacks.picker.lsp_references() end, desc = "Goto references" },
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
 }

@@ -16,13 +16,6 @@ return {
 		-- event = 'BufWritePre', -- uncomment for format on save
 		opts = require("configs.conform"),
 	},
-
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("configs.lspconfig")
-		end,
-	},
 	{
 		"zbirenbaum/copilot.lua",
 		commit = "99654fe9ad6cb2500c66b178a03326f75c95f176", -- https://github.com/zbirenbaum/copilot.lua/issues/408
