@@ -20,7 +20,10 @@ M.ui = {
 			"%=",
 			"customText",
 			"%=",
-			"diagnostics",
+			"keys",
+			"%=",
+			-- "macro",
+			-- "%=",
 			"lsp",
 			"cwd",
 			"cursor",
@@ -30,7 +33,24 @@ M.ui = {
 				return " " .. os.getenv("USER") .. " -  " .. os.date("%H:%M")
 			end,
 			cursor = function()
-				return "%#StText#%#St_pos_icon#%#St_pos_text# %l:%c"
+				local line = vim.fn.line(".")
+				local col = vim.fn.col(".")
+				local line_str = string.format("%3d", line)
+				local col_str = string.format("%2d", col)
+				return "%#StText#%#St_pos_icon#%#St_pos_text# " .. line_str .. ":" .. col_str
+			end,
+			macro = function()
+				local reg = vim.fn.reg_recording()
+				if reg ~= "" then
+					return "%#StWarningMsg#" .. " REC @" .. reg .. " "
+				end
+				return ""
+			end,
+			keys = function()
+				if _G.last_keys and _G.last_keys ~= "" then
+					return "%#StText#[" .. _G.last_keys .. "]"
+				end
+				return ""
 			end,
 		},
 	},

@@ -49,3 +49,18 @@ end
 
 require("configs.autocmds")
 require("configs.dap")
+
+_G.last_keys = ""
+
+vim.on_key(function(key)
+	if vim.fn.mode() == "i" then
+		return
+	end
+
+	local max_len = 10
+	_G.last_keys = (_G.last_keys .. key):sub(-max_len)
+
+	vim.schedule(function()
+		vim.cmd.redrawstatus()
+	end)
+end, vim.api.nvim_create_namespace("keylog_statusline"))
