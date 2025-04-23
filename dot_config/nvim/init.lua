@@ -64,3 +64,4 @@ vim.on_key(function(key)
 		vim.cmd.redrawstatus()
 	end)
 end, vim.api.nvim_create_namespace("keylog_statusline"))
+vim.opt.shiftwidth = 4

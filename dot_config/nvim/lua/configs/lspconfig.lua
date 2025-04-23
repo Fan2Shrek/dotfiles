@@ -11,7 +11,19 @@ local servers = {
 		on_attach = function(client, bufnr)
 			client.server_capabilities.signatureHelpProvider = false
 		end,
+		settings = {
+			intelephense = {
+				environment = {
+					includePaths = {
+						vim.fn.expand("~/.local/share/intelephense-stubs"),
+					},
+				},
+			},
+		},
 	},
+
+	vuels = {},
+	["ts_ls"] = {},
 }
 
 -- lsps with default config

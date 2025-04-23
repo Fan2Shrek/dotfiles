@@ -4,6 +4,13 @@ return {
 	--        cmd = "Telescope",
 	-- 	opts = require("configs.telescope"),
 	-- },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
+        opts = {
+            ensure_installed = { "vuels" },
+        }
+    },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },

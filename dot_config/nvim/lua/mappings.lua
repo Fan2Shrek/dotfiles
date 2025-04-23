@@ -14,6 +14,7 @@ map(
 	{ noremap = true, silent = true, desc = "Close all buffers in tab" }
 )
 
+map('n', '<leader>rr', ':checktime<CR>', { noremap = true })
 
 -- LSP mappings
 map("n", "<leader>ra", "<Cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true, desc = "Rename" })
