@@ -28,6 +28,7 @@ source ~/.config/nushell/scripts/docker.nu
 ###### ALIAS
 alias lg = lazygit
 alias cdd = cd /work
+alias bye = sudo shutdown -h now
 
 ###### ENV
 $env.EDITOR = "nvim"
