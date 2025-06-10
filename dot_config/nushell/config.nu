@@ -18,6 +18,7 @@
 # them for future reference.
 
 source ~/.oh-my-posh.nu
+$env.TERM = "xterm-256color"
 
 $env.PATH = ($env.PATH | prepend "/home/pierr/.cargo/bin")
 
