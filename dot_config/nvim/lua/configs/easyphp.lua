@@ -12,6 +12,7 @@ local keys = {
     { "--ac", "<CMD>PHPEasyInitAbstractClass<CR>", ft = "php" },
     { "--t", "<CMD>PHPEasyInitTrait<CR>", ft = "php" },
     { "--e", "<CMD>PHPEasyInitEnum<CR>", ft = "php" },
+    { "--_", "<CMD>PHPEasyAppendInvoke<CR>", ft = "php" },
     { "-c", "<CMD>PHPEasyAppendConstant<CR>", ft = "php", mode = { "n", "v" } },
     { "-p", "<CMD>PHPEasyAppendProperty<CR>", ft = "php", mode = { "n", "v" } },
     { "-m", "<CMD>PHPEasyAppendMethod<CR>", ft = "php", mode = { "n", "v" } },
