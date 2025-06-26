@@ -21,9 +21,6 @@ local servers = {
 			},
 		},
 	},
-
-	vuels = {},
-	["ts_ls"] = {},
 }
 
 -- lsps with default config
@@ -34,3 +31,18 @@ for name, opts in pairs(servers) do
 
 	lspconfig[name].setup(opts)
 end
+
+lspconfig.ts_ls.setup({
+	on_attach = nvlsp.on_attach,
+	capabilities = nvlsp.capabilities,
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = "/home/pierr/.npm-global/lib/node_modules/@vue/language-server",
+				languages = { "vue" },
+			},
+		},
+	},
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+})
