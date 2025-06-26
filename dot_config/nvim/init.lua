@@ -26,8 +26,6 @@ require("lazy").setup({
 }, lazy_config)
 
 -- load theme
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
 
 require("options")
 require("nvchad.autocmds")
@@ -52,16 +50,17 @@ require("configs.dap")
 
 _G.last_keys = ""
 
-vim.on_key(function(key)
-	if vim.fn.mode() == "i" then
-		return
-	end
+-- vim.on_key(function(key)
+-- 	if vim.fn.mode() == "i" then
+-- 		return
+-- 	end
+--
+-- 	local max_len = 10
+-- 	_G.last_keys = (_G.last_keys .. key):sub(-max_len)
+--
+-- 	vim.schedule(function()
+-- 		vim.cmd.redrawstatus()
+-- 	end)
+-- end, vim.api.nvim_create_namespace("keylog_statusline"))
 
-	local max_len = 10
-	_G.last_keys = (_G.last_keys .. key):sub(-max_len)
-
-	vim.schedule(function()
-		vim.cmd.redrawstatus()
-	end)
-end, vim.api.nvim_create_namespace("keylog_statusline"))
 vim.opt.shiftwidth = 4

@@ -12,6 +12,7 @@ M.base46 = {
 
 M.ui = {
 	statusline = {
+        enabled = false,
 		theme = "vscode_colored",
 		order = {
 			"mode",
@@ -47,9 +48,9 @@ M.ui = {
 				return ""
 			end,
 			keys = function()
-				if _G.last_keys and _G.last_keys ~= "" then
-					return "%#StText#[" .. _G.last_keys .. "]"
-				end
+				-- if _G.last_keys and _G.last_keys ~= "" then
+				-- 	return "%#StText#[" .. _G.last_keys .. "]"
+				-- end
 				return ""
 			end,
 		},

@@ -11,9 +11,19 @@ local options = {
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = true, -- add a border to hover docs and signature help
 	},
-    notify = {
-        enable = false,
-    },
+	notify = {
+		enable = false,
+	},
+	routes = {
+		{
+			view = "notify",
+			filter = { event = "msg_showmode" },
+		},
+		{
+			view = "mini",
+			filter = { event = "msg_showcmd" },
+		},
+	},
 }
 
 return options
