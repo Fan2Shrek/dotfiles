@@ -6,7 +6,6 @@ local options = {
         "luadoc",
         "javascript",
         "markdown",
-        "printf",
         "php",
         "regex",
         "twig",
@@ -16,7 +15,8 @@ local options = {
 
     highlight = {
         enable = true,
-        use_languagetree = true,
+		use_languagetree = true,
+		additional_vim_regex_highlighting = false,
     },
 
     indent = {
@@ -24,4 +24,4 @@ local options = {
     },
 }
 
-require("nvim-treesitter.configs").setup(options)
+return options

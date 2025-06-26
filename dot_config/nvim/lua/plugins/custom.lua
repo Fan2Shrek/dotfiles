@@ -1,14 +1,22 @@
 return {
 	-- {
-	-- 	"nvim-telescope/telescope.nvim",
-	--        cmd = "Telescope",
-	-- 	opts = require("configs.telescope"),
+	--     "williamboman/mason-lspconfig.nvim",
+	--     event = "VeryLazy",
+	--     opts = {
+	--         ensure_installed = { "vuels" },
+	--     }
 	-- },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("configs.treesitter")
+		event = { "BufReadPost", "BufNewFile" },
+		lazy = false,
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		build = ":TSUpdate",
+		opts = function()
+			return require("configs.treesitter")
+		end,
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
@@ -54,12 +62,12 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
-        opts = {},
+		opts = {},
 	},
 	{
 		"ta-tikoma/php.easy.nvim",
 		keys = require("configs.easyphp"),
-        opts = {}
+		opts = {},
 	},
 	{
 		"folke/noice.nvim",
@@ -105,6 +113,20 @@ return {
 			indent = { enabled = true },
 			input = { enabled = true },
 			notifier = { enabled = true },
+			terminal = {
+				win = {
+					position = "float",
+					width = 0.8,
+					height = 0.8,
+					border = "rounded",
+					wo = {
+						winhighlight = {
+							NormalFloat = "Main",
+							FloatBorder = "BlueVariant",
+						},
+					},
+				},
+			},
 			quickfile = { enabled = true },
 			scope = { enabled = true },
 			words = { enabled = true },
@@ -128,5 +150,11 @@ return {
 			},
 		},
 		keys = require("configs.snacks"),
+	},
+	{
+		"cocopon/iceberg.vim",
+		config = function()
+			vim.cmd("colorscheme iceberg")
+		end,
 	},
 }

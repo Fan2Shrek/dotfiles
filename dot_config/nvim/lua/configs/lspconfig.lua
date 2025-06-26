@@ -1,12 +1,25 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
-
 local lspconfig = require("lspconfig")
-local nvlsp = require("nvchad.configs.lspconfig")
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem = {
+	documentationFormat = { "markdown", "plaintext" },
+	snippetSupport = true,
+	preselectSupport = true,
+	insertReplaceSupport = true,
+	labelDetailsSupport = true,
+	deprecatedSupport = true,
+	commitCharactersSupport = true,
+	tagSupport = { valueSet = { 1 } },
+	resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	},
+}
 
 local servers = {
-	html = {},
-
 	intelephense = {
 		on_attach = function(client, bufnr)
 			client.server_capabilities.signatureHelpProvider = false
@@ -25,9 +38,7 @@ local servers = {
 
 -- lsps with default config
 for name, opts in pairs(servers) do
-	opts.on_attach = opts.on_attach or nvlsp.on_attach
-	opts.on_init = opts.on_init or nvlsp.on_init
-	opts.capabilities = opts.capabilities or nvlsp.capabilities
+	opts.capabilities = capabilities
 
 	lspconfig[name].setup(opts)
 end
