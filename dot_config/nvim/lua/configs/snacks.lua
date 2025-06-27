@@ -8,9 +8,8 @@ local keys = {
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 
-
-    { "<leader>fl", function() Snacks.picker.lines() end, desc = "Current Buffer Lines" },
-    { "<leader>fo", function() Snacks.picker.grep_buffers() end, desc = "Buffer Lines" },
+    { "<leader>fl", function() Snacks.picker.grep_buffers() end, desc = "Buffer Lines" },
+    { "<leader>fo", function() Snacks.picker.lines() end, desc = "Current Buffer Lines" },
 
     { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },

@@ -44,8 +44,6 @@ for name, opts in pairs(servers) do
 end
 
 lspconfig.ts_ls.setup({
-	on_attach = nvlsp.on_attach,
-	capabilities = nvlsp.capabilities,
 	init_options = {
 		plugins = {
 			{

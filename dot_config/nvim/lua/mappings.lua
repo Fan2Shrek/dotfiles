@@ -24,3 +24,9 @@ map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+
+-- Buffer mappings
+map("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = "Goto previous buffer" })
+map("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = "Goto next buffer" })
+map("n", "<leader>x",  "<Cmd>BufferClose<CR>", { desc = "buffer close" })
+map('n', '<C-p>',   '<Cmd>BufferPick<CR>', { desc = "Jump to buffer" })
