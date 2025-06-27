@@ -7,8 +7,8 @@ vim.api.nvim_create_autocmd("BufDelete", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		require("nvim-tree.api").tree.close()
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimLeavePre", {
+-- 	callback = function()
+-- 		require("nvim-tree.api").tree.close()
+-- 	end,
+-- })

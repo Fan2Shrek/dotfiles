@@ -89,7 +89,6 @@ return {
 	},
 	{
 		"romgrk/barbar.nvim",
-		lazy = false,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
@@ -98,19 +97,19 @@ return {
 		end,
 		opts = require("configs.barbar"),
 	},
-	{
-		-- remove unlazy load
-		"mfussenegger/nvim-dap",
-		-- lazy = false,
-		config = function() end,
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio",
-		},
-	},
+	-- {
+	-- 	-- remove unlazy load
+	-- 	"mfussenegger/nvim-dap",
+	-- 	-- lazy = false,
+	-- 	config = function() end,
+	-- },
+	-- {
+	-- 	"rcarriga/nvim-dap-ui",
+	-- 	dependencies = {
+	-- 		"mfussenegger/nvim-dap",
+	-- 		"nvim-neotest/nvim-nio",
+	-- 	},
+	-- },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,

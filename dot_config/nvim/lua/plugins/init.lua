@@ -4,15 +4,6 @@ return {
 		event = "InsertEnter",
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
-		opts = {
-			renderer = {
-				group_empty = true,
-			},
-		},
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-	},
-	{
 		"mason-org/mason.nvim",
 		lazy = false,
 		opts = {},
@@ -20,6 +11,13 @@ return {
 	{
 		"nvim-tree/nvim-web-devicons",
 		opts = {},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		lazy = false,
+		config = function()
+			require("configs.lspconfig")
+		end,
 	},
 	-- {
 	-- 	"saghen/blink.cmp",
@@ -70,5 +68,4 @@ return {
 			enable_named_colors = false,
 		},
 	},
-	require("configs.lsp"),
 }

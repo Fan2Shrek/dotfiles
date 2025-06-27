@@ -37,9 +37,8 @@ function CloseAllBuffersInTab()
 end
 
 require("configs.autocmds")
-require("configs.dap")
+-- require("configs.dap")
 
-_G.last_keys = ""
 
 -- vim.on_key(function(key)
 -- 	if vim.fn.mode() == "i" then
@@ -53,5 +52,3 @@ _G.last_keys = ""
 -- 		vim.cmd.redrawstatus()
 -- 	end)
 -- end, vim.api.nvim_create_namespace("keylog_statusline"))
-
-vim.opt.shiftwidth = 4
