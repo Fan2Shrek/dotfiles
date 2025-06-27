@@ -126,8 +126,8 @@ return {
 			terminal = {
 				win = {
 					position = "float",
-					width = 0.8,
-					height = 0.8,
+					width = 0.6,
+					height = 0.6,
 					border = "rounded",
 					wo = {
 						winhighlight = {

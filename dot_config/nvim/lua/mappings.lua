@@ -1,5 +1,5 @@
-local current_dir = vim.fn.expand('%:p:h')
-package.path = current_dir .. '/?.lua;' .. package.path
+local current_dir = vim.fn.expand("%:p:h")
+package.path = current_dir .. "/?.lua;" .. package.path
 
 -- add yours here
 local map = vim.keymap.set
@@ -11,9 +11,9 @@ map(
 	{ noremap = true, silent = true, desc = "Close all buffers in tab" }
 )
 
-map('n', '<leader>rr', ':checktime<CR>', { noremap = true })
+map("n", "<leader>rr", ":checktime<CR>", { noremap = true })
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+	require("conform").format({ lsp_fallback = true })
 end, { desc = "general format file" })
 
 -- LSP mappings
@@ -28,5 +28,32 @@ map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 -- Buffer mappings
 map("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = "Goto previous buffer" })
 map("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = "Goto next buffer" })
-map("n", "<leader>x",  "<Cmd>BufferClose<CR>", { desc = "buffer close" })
-map('n', '<C-p>',   '<Cmd>BufferPick<CR>', { desc = "Jump to buffer" })
+map("n", "<leader>x", "<Cmd>BufferClose<CR>", { desc = "buffer close" })
+map("n", "<C-p>", "<Cmd>BufferPick<CR>", { desc = "Jump to buffer" })
+
+map({ "n", "t" }, "<A-i>", function()
+	Snacks.terminal.toggle(nil, {
+		win = {
+			position = "float",
+			width = 0.6,
+			height = 0.6,
+			border = "rounded",
+			wo = {
+				winhighlight = {
+					NormalFloat = "Main",
+					FloatBorder = "BlueVariant",
+				},
+			},
+		},
+	})
+end, { desc = "Terminal toggle floating term" })
+
+map({ "n", "t" }, "<A-v>", function()
+	Snacks.terminal.open(nil, {
+		win = {
+			position = "bottom",
+			border = "rounded",
+			height = 0.3,
+		},
+	})
+end, { desc = "Terminal toggle vertical term" })
