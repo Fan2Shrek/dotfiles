@@ -13,6 +13,10 @@ local keys = {
 
     { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
+    { '<leader>sm', function() Snacks.picker.marks({
+		["local"] = true,
+		global = false,
+	}) end, desc = "Marks" },
 
     { "grr", function() Snacks.picker.lsp_references() end, desc = "Goto references" },
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },

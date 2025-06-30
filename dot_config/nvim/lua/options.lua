@@ -8,8 +8,7 @@ o.rnu = true
 o.nu = true
 
 o.laststatus = 0
-o.signcolumn = "no"
-vim.wo.signcolumn = "no"
+o.signcolumn = "yes"
 
 o.clipboard = "unnamedplus"
 

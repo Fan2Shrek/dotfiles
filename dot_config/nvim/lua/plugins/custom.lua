@@ -168,4 +168,9 @@ return {
 			vim.cmd("colorscheme iceberg")
 		end,
 	},
+	{
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
 }
