@@ -4,7 +4,8 @@
 	"layer": "top",
 	"margin-left": 50,
 	"margin-right": 50,
-	"margin-top": 10,
+	"margin-top": 7,
+	"margin-bottom": 7,
 	"spacing": 0,
 
 	// Load Modules
