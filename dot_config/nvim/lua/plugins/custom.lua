@@ -9,14 +9,30 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
+		branch = 'main',
 		lazy = false,
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
+		init = function()
+		  vim.api.nvim_create_autocmd('FileType', {
+			callback = function()
+			  pcall(vim.treesitter.start)
+			  vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		  })
+		  local ensureInstalled = {
+			'lua', 'php', 'typescript',
+		  }
+		  local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+		  local parsersToInstall = vim.iter(ensureInstalled)
+			:filter(function(parser)
+			  return not vim.tbl_contains(alreadyInstalled, parser)
+			end)
+			:totable()
+		  require('nvim-treesitter').install(parsersToInstall)
+		end,
 		opts = function()
 			return require("configs.treesitter")
-		end,
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{ 'wakatime/vim-wakatime', lazy = false },
@@ -68,9 +84,6 @@ return {
 	-- 	event = "VeryLazy",
 	-- 	opts = require("configs.noice"),
 	-- },
-	{
-		"RRethy/vim-illuminate",
-	},
 	{
 		"cappyzawa/trim.nvim",
 		opts = {},
