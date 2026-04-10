@@ -6,6 +6,7 @@ o.clipboard = "unnamedplus"
 g.have_nerd_font = true
 
 vim.cmd[[set rnu]]
+vim.cmd[[set nowrap]]
 
 -- vim.cmd[[
 -- 	highlight Normal guibg=none

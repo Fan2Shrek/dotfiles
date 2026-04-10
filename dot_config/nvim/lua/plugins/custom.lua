@@ -19,6 +19,7 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	{ 'wakatime/vim-wakatime', lazy = false },
 	{
 		"stevearc/conform.nvim",
 		-- event = 'BufWritePre', -- uncomment for format on save
@@ -36,13 +37,6 @@ return {
 	{
 		"smoka7/hop.nvim",
 		keys = {
-			{
-				",",
-				function()
-					require("hop").hint_words()
-				end,
-				mode = { "n", "x", "o" },
-			},
 			{
 				"<leader>j",
 				function()

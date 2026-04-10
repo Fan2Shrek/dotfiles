@@ -21,6 +21,8 @@ require("lazy").setup({
 
 require("options")
 
+vim.opt.wrap = false
+
 vim.schedule(function()
 	require("mappings")
 end)
