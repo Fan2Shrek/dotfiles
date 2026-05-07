@@ -1,2 +1,0 @@
-os:
-  openLink: '/usr/bin/zsh -c "xdg-open \"{{link}}\"" >/dev/null'
